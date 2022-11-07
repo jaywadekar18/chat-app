@@ -1,0 +1,29 @@
+
+input{
+    border: 1px solid grey;
+    border-radius: 5px ;
+    height: 30px;
+    /* margin-bottom: 20px; */
+    padding: 5px;
+}
+.errorMsg{
+    color: red;
+    margin-top: 0;
+    font-size: 14px;
+}
+label{
+    padding-bottom: 5px;
+}
+.formContainer{
+    display: flex;
+    flex-direction: column;
+}
+
+.submitButton{
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: rgb(173, 112, 173);
+    color: white;
+    border: none;
+    padding: 10px;
+}

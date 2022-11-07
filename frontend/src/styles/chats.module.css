@@ -1,0 +1,37 @@
+.chatContainer {
+  display: flex;
+}
+.user{
+  cursor: pointer;
+  background-color: antiquewhite;
+  border-radius: 1px solid grey;
+  margin-top: 5px;
+
+}
+.usersSection {
+  width: 400px;
+  border: 1px solid red;
+  border-radius: 5px;
+}
+
+.chatsSection {
+  width: 700px;
+  border: 1px solid blue;
+  position: relative;
+}
+.message{
+  padding:5px;
+  border-radius: 5px;
+  color:white;
+  background-color: purple;
+}
+.sendMsgSection{
+  display: flex;
+  left:0;
+  position:absolute;
+  /* bottom :0-; */
+  width: 100%;
+}
+.addMessageInput{
+  width: 100%;
+}
