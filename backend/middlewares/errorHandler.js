@@ -22,7 +22,7 @@ function errorHandler(err, req, res, next) {
     }
 }
 const notFound = (req, res, next) => {
-    return res.json({
+    return res.status(404).json({
         error:
         {
             message: `page not found! ${req.originalUrl}`,

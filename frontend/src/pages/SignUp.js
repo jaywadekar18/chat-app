@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import styles from '../styles/login.module.css'
+import { addValueInLocalStorage} from '../services/localStorageService'
+import axiosClient from '../services/axiosService';
+import {useNavigate} from 'react-router-dom'
 function SignUp() {
+    const navigate =useNavigate()
     const [form, setForm] = useState({
         name: '',
         email: '',
@@ -32,11 +36,25 @@ function SignUp() {
         if (form.confirmPassword.length === 0) {
             errors.confirmPassword = 'Please confirm password!!'
         }
+        if (form.confirmPassword !== form.password) {
+            errors.confirmPassword = "Both password's should be same!!"
+        }
         setFormError(errors)
     }
-    function handleSubmit() {
+    async function handleSubmit() {
         handleError()
         console.log(formError);
+        console.log(Object.keys(formError).length !== 0)
+            if (Object.keys(formError).length !== 0) {
+                return;
+            }
+            let res = await axiosClient.post('user', form);
+            console.log(res)
+            if (res?.data) {
+                addValueInLocalStorage('userId', res?.data?.userId);
+                addValueInLocalStorage('accessToken', res?.data?.accessToken);
+                navigate("/chats")
+            }
 
     }
     return (

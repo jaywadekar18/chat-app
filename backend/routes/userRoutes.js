@@ -21,7 +21,11 @@ router.route('/').
             let newUser = await user.save()
             const accessToken = JwtService.sign({ _id: newUser._id })
 
-            res.json({ accessToken: accessToken })
+            res.json({ 
+                userId: newUser._id,
+                name: newUser.name,
+                email: newUser.email,
+                accessToken: accessToken })
         }
 
         catch (err) {
@@ -29,7 +33,7 @@ router.route('/').
             next(ErrorHandler.serverError(err.message));
         }
     })
-router.route('/:keyword')
+router.route('/searchuser/:keyword')
     //find users matching keyword
     .get(async (req, res, next) => {
 
@@ -43,7 +47,7 @@ router.route('/:keyword')
                     { name: { "$regex": keyword, $options: 'i' } },
                     { email: { "$regex": keyword, $options: 'i' } }
                 ]
-            });
+            }).select('-password -createdAt -__v -updatedAt');
             if (userList.length > 0) {
                 res.json(userList)
             }

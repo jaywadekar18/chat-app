@@ -15,8 +15,9 @@ function App() {
       <Router>
       <Navbar/>
         <Routes>
-          <Route path='/home' element={<Home />} />
-          <Route path='/chats' element={<PrivateRoute path='/chats'><Chats/></PrivateRoute>}/>
+          <Route exact path='/login' element={<Home />} />
+          <Route exact path='/chats' element={<PrivateRoute path='/chats'><Chats/></PrivateRoute>}/>
+          <Route path='*' element={<Home />} />
         </Routes>
         <Footer/>
       </Router>

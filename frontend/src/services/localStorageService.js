@@ -4,5 +4,8 @@ function addValueInLocalStorage(key, value) {
 function getValueFromLocalStorage(key) {
     return JSON.parse(window.localStorage.getItem(key))
 }
+function deleteValueFromLocalStorage(key) {
+    window.localStorage.removeItem(key)
+}
 
-export { addValueInLocalStorage, getValueFromLocalStorage };
+export { addValueInLocalStorage, getValueFromLocalStorage ,deleteValueFromLocalStorage };

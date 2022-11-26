@@ -2,6 +2,11 @@ nav {
   height: 50px;
   background-color: rgb(197, 127, 197);
 }
-input{
+input {
   /* text-align: right; */
+}
+
+.navLinks{
+  margin: 0 10px;
+  cursor: pointer
 }

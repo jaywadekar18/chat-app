@@ -3,7 +3,10 @@ import React, { useState, useEffect } from 'react'
 import axiosClient from '../services/axiosService';
 import styles from '../styles/login.module.css'
 import { addValueInLocalStorage} from '../services/localStorageService'
+import {useNavigate} from 'react-router-dom'
+
 function Login() {
+    const navigate =useNavigate()
     const [form, setForm] = useState({
         email: '',
         password: '',
@@ -42,6 +45,7 @@ function Login() {
             if (res?.data) {
                 addValueInLocalStorage('userId', res?.data?.userId);
                 addValueInLocalStorage('accessToken', res?.data?.accessToken);
+                navigate("/chats")
             }
         }
         catch (err) {

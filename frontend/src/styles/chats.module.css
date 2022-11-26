@@ -1,37 +1,91 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .chatContainer {
   display: flex;
+  height: 700px;
+  margin-top: 20px;
 }
-.user{
+.user {
   cursor: pointer;
-  background-color: antiquewhite;
+  background-color: #f4acf4;
   border-radius: 1px solid grey;
   margin-top: 5px;
-
 }
 .usersSection {
   width: 400px;
   border: 1px solid red;
   border-radius: 5px;
+  overflow-y: auto;
 }
-
+.messages {
+  overflow-y: auto;
+  height: 600px;
+}
 .chatsSection {
   width: 700px;
   border: 1px solid blue;
   position: relative;
+  /* overflow-y: scroll; */
 }
-.message{
-  padding:5px;
+.message {
+  padding: 5px;
   border-radius: 5px;
-  color:white;
+  color: white;
   background-color: purple;
+  margin: 5px;
 }
-.sendMsgSection{
+.sendMsgSection {
   display: flex;
-  left:0;
-  position:absolute;
-  /* bottom :0-; */
+  left: 0;
+  position: absolute;
+  bottom: 0;
   width: 100%;
 }
-.addMessageInput{
+.addMessageInput {
   width: 100%;
+}
+.dropdownContainer {
+  z-index: 1;
+  position: absolute;
+  right: 5px;
+  background-color: plum;
+  width: 260px;
+  text-align: left;
+}
+.searchContainer {
+  position: relative;
+  text-align: right;
+  margin-left: auto;
+  border-bottom: 4px solid purple;
+}
+.searchResult{
+  padding-left: 10px;
+}
+.profilePic {
+  border-radius: 50%;
+  height: 25px;
+  vertical-align: top;
+}
+.createNewGrpBtn {
+  display: block;
+  margin-right: 0;
+  margin-left: auto;
+  padding: 5px 10px;
+  /* border-radius: 10px; */
+  border: 2px solid purple;
+}
+.searchUserInput {
+  margin: 5px;
+  width: 250px;
+}
+.emptyState{
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
